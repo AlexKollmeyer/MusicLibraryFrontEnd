@@ -7,10 +7,10 @@ import NewSongForm from "./Components/NewSongForm/NewSongForm";
 
 function App() {
   const [songs, setSongs] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const fetchSongs = async () => {
     try {
       const response = await axios.get("https://localhost:7149/api/Songs");
-      console.log(response);
       setSongs(response.data);
     } catch (error) {
       console.warn("Error in fetch Music request:", error);
@@ -19,10 +19,16 @@ function App() {
   useEffect(() => {
     fetchSongs();
   }, []);
+
   return (
     <div className="App">
       <Header />
-      <MusicTable songs={songs} />
+      <MusicTable
+        songs={songs}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        onDeleteSong={fetchSongs}
+      />
       <NewSongForm onNewSong={fetchSongs} />
     </div>
   );

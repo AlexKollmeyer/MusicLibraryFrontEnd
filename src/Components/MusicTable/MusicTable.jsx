@@ -1,7 +1,19 @@
 import SongRow from "../SongRow/SongRow";
-const MusicTable = ({ songs = [] }) => {
+const MusicTable = ({
+  songs = [],
+  activeIndex,
+  setActiveIndex,
+  onDeleteSong,
+}) => {
   const songRows = songs.map((song) => (
-    <SongRow key={song.title} song={song} />
+    <SongRow
+      key={song.title}
+      song={song}
+      activeIndex={activeIndex}
+      setActiveIndex={setActiveIndex}
+      onDeleteSong={onDeleteSong}
+      index={song.id}
+    />
   ));
   console.log(songRows);
   return (
