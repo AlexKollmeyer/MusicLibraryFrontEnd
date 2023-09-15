@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./Components/Header/Header";
 import MusicTable from "./Components/MusicTable/MusicTable";
+import NewSongForm from "./Components/NewSongForm/NewSongForm";
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <Header />
       <MusicTable songs={songs} />
+      <NewSongForm onNewSong={fetchSongs} />
     </div>
   );
 }
