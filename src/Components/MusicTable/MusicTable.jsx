@@ -13,6 +13,7 @@ const MusicTable = ({ songs = [] }) => {
           <th>Album</th>
           <th>Genre</th>
           <th>Release Date</th>
+          <th>Likes</th>
           <th></th>
         </tr>
       </thead>

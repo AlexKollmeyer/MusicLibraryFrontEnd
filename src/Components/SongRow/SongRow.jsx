@@ -6,6 +6,7 @@ const SongRow = ({ song }) => {
       <td>{song.album}</td>
       <td>{song.genre}</td>
       <td>{song.releaseDate.substr(0, 10)}</td>
+      <td>{song.likes}</td>
       <td>
         <button>Delete Song</button>
       </td>
